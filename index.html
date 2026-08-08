@@ -49,6 +49,7 @@
     <nav class="topnav__links" aria-label="Primary">
       <a href="#services">Services</a>
       <a href="#prices">Prices</a>
+      <a href="#book">Book</a>
       <a href="#property">Property managers</a>
       <a href="#about">About</a>
     </nav>
@@ -242,6 +243,181 @@
   </div>
 </section>
 
+<!-- ============ BOOKING ============ -->
+<section class="section booking" id="book">
+  <div class="shell">
+    <p class="eyebrow eyebrow--slate">Pick your day</p>
+    <h2 class="bigtitle">Request a booking</h2>
+    <p class="bigtitle__sub">Tell us what you need and when you want us. It builds a message with all the details and your price already in it &mdash; you just hit send.</p>
+
+    <form class="bk" id="bkForm" novalidate>
+      <div class="bk__main">
+
+        <!-- 1 — service -->
+        <fieldset class="bk__step">
+          <legend class="bk__legend"><span class="bk__num">1</span> What do you need?</legend>
+          <div class="bk__opts bk__opts--2">
+            <label class="opt">
+              <input type="radio" name="service" value="carpet" checked>
+              <span class="opt__box"><b>Carpet cleaning</b><small>From $30 a room</small></span>
+            </label>
+            <label class="opt">
+              <input type="radio" name="service" value="moveout">
+              <span class="opt__box"><b>Move-out cleaning</b><small>$200 flat per apartment</small></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- 2a — carpet detail -->
+        <fieldset class="bk__step" id="bkCarpetFields">
+          <legend class="bk__legend"><span class="bk__num">2</span> How much carpet?</legend>
+          <div class="bk__opts bk__opts--4">
+            <label class="opt">
+              <input type="radio" name="pkg" value="1br" checked>
+              <span class="opt__box"><b>1 Bedroom</b><small>$80–150</small></span>
+            </label>
+            <label class="opt">
+              <input type="radio" name="pkg" value="2br">
+              <span class="opt__box"><b>2 Bedroom</b><small>$120–200</small></span>
+            </label>
+            <label class="opt">
+              <input type="radio" name="pkg" value="3br">
+              <span class="opt__box"><b>3 Bedroom</b><small>$180–300</small></span>
+            </label>
+            <label class="opt">
+              <input type="radio" name="pkg" value="rooms">
+              <span class="opt__box"><b>Room by room</b><small>Pick exactly</small></span>
+            </label>
+          </div>
+
+          <div class="bk__rooms" id="bkRooms" hidden>
+            <label class="qty"><span>Small room <small>up to 150 sq ft</small></span>
+              <input type="number" id="bkSmallRoom" min="0" max="20" step="1" value="0"></label>
+            <label class="qty"><span>Standard bedroom</span>
+              <input type="number" id="bkBedroom" min="0" max="20" step="1" value="0"></label>
+            <label class="qty"><span>Large living room</span>
+              <input type="number" id="bkLivingRoom" min="0" max="20" step="1" value="0"></label>
+            <label class="qty"><span>Hallway</span>
+              <input type="number" id="bkHallway" min="0" max="20" step="1" value="0"></label>
+            <label class="qty"><span>Stairs <small>per flight</small></span>
+              <input type="number" id="bkStairs" min="0" max="20" step="1" value="0"></label>
+          </div>
+
+          <p class="bk__sub">Add-ons</p>
+          <div class="bk__checks">
+            <label class="chk"><input type="checkbox" name="addon" value="petOdor" data-service="carpet">
+              <span class="chk__box">Pet odor treatment <b>$30–50</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="stain" data-service="carpet">
+              <span class="chk__box">Heavy stain treatment <b>$40–60</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="deodorizer" data-service="carpet">
+              <span class="chk__box">Deodorizer / disinfectant <b>$20–40</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="furniture" data-service="carpet">
+              <span class="chk__box">Furniture moving <b>$20+</b></span></label>
+          </div>
+        </fieldset>
+
+        <!-- 2b — move-out detail -->
+        <fieldset class="bk__step" id="bkMoveoutFields" hidden>
+          <legend class="bk__legend"><span class="bk__num">2</span> How many apartments?</legend>
+          <label class="qty qty--wide"><span>Apartments to turn</span>
+            <input type="number" id="bkUnits" min="1" max="20" step="1" value="1"></label>
+          <p class="bk__hint">Three or more units is quoted on the phone &mdash; send the request and we will call you back with the rate.</p>
+
+          <p class="bk__sub">Add-ons</p>
+          <div class="bk__checks">
+            <label class="chk"><input type="checkbox" name="addon" value="fridge" data-service="moveout">
+              <span class="chk__box">Inside refrigerator <b>$25</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="oven" data-service="moveout">
+              <span class="chk__box">Inside oven <b>$25</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="cabinets" data-service="moveout">
+              <span class="chk__box">Inside cabinets <b>$20</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="windows" data-service="moveout">
+              <span class="chk__box">Interior windows <b>$5–10 ea</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="petHair" data-service="moveout">
+              <span class="chk__box">Pet hair removal <b>$30–75</b></span></label>
+            <label class="chk"><input type="checkbox" name="addon" value="heavyTrash" data-service="moveout">
+              <span class="chk__box">Heavy trash / excessive dirt <b>$50–150</b></span></label>
+          </div>
+
+          <div class="bk__rooms" id="bkWindowsQty" hidden>
+            <label class="qty"><span>How many windows?</span>
+              <input type="number" id="bkWindows" min="1" max="40" step="1" value="1"></label>
+          </div>
+        </fieldset>
+
+        <!-- 3 — date -->
+        <fieldset class="bk__step">
+          <legend class="bk__legend"><span class="bk__num">3</span> Pick a date</legend>
+          <div class="cal">
+            <div class="cal__head">
+              <button type="button" class="cal__nav" id="bkPrev" aria-label="Previous month">&lsaquo;</button>
+              <h3 class="cal__month" id="bkMonth" aria-live="polite">&nbsp;</h3>
+              <button type="button" class="cal__nav" id="bkNext" aria-label="Next month">&rsaquo;</button>
+            </div>
+            <div class="cal__dow" aria-hidden="true">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+              <span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <div class="cal__grid" id="bkGrid" role="grid" aria-labelledby="bkMonth"></div>
+            <p class="cal__note">Closed Sundays &middot; bookings open from tomorrow up to 90 days out. Need it today? <a href="tel:+17739566249">Call us</a>.</p>
+          </div>
+        </fieldset>
+
+        <!-- 4 — time -->
+        <fieldset class="bk__step">
+          <legend class="bk__legend"><span class="bk__num">4</span> What time works?</legend>
+          <div class="bk__opts bk__opts--4">
+            <label class="opt"><input type="radio" name="timeWindow" value="morning">
+              <span class="opt__box"><b>Morning</b><small>8 – 11 AM</small></span></label>
+            <label class="opt"><input type="radio" name="timeWindow" value="midday">
+              <span class="opt__box"><b>Midday</b><small>11 AM – 2 PM</small></span></label>
+            <label class="opt"><input type="radio" name="timeWindow" value="afternoon">
+              <span class="opt__box"><b>Afternoon</b><small>2 – 5 PM</small></span></label>
+            <label class="opt"><input type="radio" name="timeWindow" value="evening">
+              <span class="opt__box"><b>Evening</b><small>5 – 7 PM</small></span></label>
+          </div>
+        </fieldset>
+
+        <!-- 5 — contact -->
+        <fieldset class="bk__step">
+          <legend class="bk__legend"><span class="bk__num">5</span> Who do we ask for?</legend>
+          <div class="bk__fields">
+            <label class="fld"><span>Your name</span>
+              <input type="text" id="bkName" name="name" autocomplete="name" placeholder="First and last"></label>
+            <label class="fld"><span>Phone</span>
+              <input type="tel" id="bkPhone" name="phone" autocomplete="tel" placeholder="773-555-0134"></label>
+            <label class="fld fld--wide"><span>Address or neighborhood</span>
+              <input type="text" id="bkAddress" name="address" autocomplete="street-address" placeholder="e.g. Hyde Park"></label>
+            <label class="fld fld--wide"><span>Anything we should know? <small>optional</small></span>
+              <input type="text" id="bkNotes" name="notes" placeholder="Pets, parking, stairs, gate code…"></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- running summary -->
+      <aside class="bk__side">
+        <div class="bk__card">
+          <p class="bk__cardK">Your estimate</p>
+          <p class="bk__est" id="bkEstimate" aria-live="polite">&mdash;</p>
+          <p class="bk__estNote" id="bkEstimateNote">Estimate from the published price list. We confirm the final number before we start.</p>
+
+          <hr class="bk__rule">
+
+          <p class="bk__cardK">When</p>
+          <p class="bk__when" id="bkSummary">No date picked yet</p>
+
+          <p class="bk__err" id="bkError" role="alert" tabindex="-1" hidden></p>
+
+          <a class="btn btn--green btn--block" id="bkSms" href="#">Send by text</a>
+          <a class="btn btn--outline-pale btn--block" id="bkMail" href="#">Send by email</a>
+
+          <p class="bk__fine">This sends a request &mdash; nothing is booked until Chantelle or Robert replies to confirm.</p>
+        </div>
+      </aside>
+    </form>
+  </div>
+</section>
+
 <!-- ============ PROPERTY MANAGERS ============ -->
 <section class="pm" id="property">
   <div class="shell">
@@ -335,10 +511,12 @@
 <!-- ============ STICKY MOBILE BAR ============ -->
 <div class="stickybar">
   <div class="stickybar__inner">
-    <a class="btn btn--green" href="tel:+17739566249">Call now</a>
+    <a class="btn btn--green" href="tel:+17739566249">Call</a>
+    <a class="btn btn--navy-light" href="#book">Book</a>
     <a class="btn btn--orange" href="sms:+17739566249?&body=Hi%20Pure%20Cleaning%20%E2%80%94%20I%27d%20like%20a%20price%20for%3A%20">Text</a>
   </div>
 </div>
 
+<script src="booking.js"></script>
 </body>
 </html>
